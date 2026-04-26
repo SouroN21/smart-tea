@@ -257,5 +257,6 @@ function DocumentCard({ doc }: { doc: Doc }) {
         </a>
       </div>
     </div>
+    
   );
 }
