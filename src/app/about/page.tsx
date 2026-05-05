@@ -3,27 +3,32 @@
 import { PageShell } from "@/components/page-shell";
 import { motion } from "framer-motion";
 import { Users, GraduationCap, Award, Calendar, User } from "lucide-react";
+import Image from "next/image";
 
 const team = [
   {
     id: "IT22342812",
     name: "Wijesekara W.W.M.N.D",
     component: "Tea Leaf Quality Classification",
+    image: "/team/naveen.jpeg",
   },
   {
     id: "IT22338198",
     name: "Abeyweera K.A.A.U.A.",
     component: "Tea Leaf Disease Detection",
+    image: "/team/arushi.jpeg",
   },
   {
     id: "IT22923806",
     name: "Kodisinghe H.R.",
     component: "Tea Price Prediction (Hybrid Model with XAI)",
+    image: "/team/hiruni.jpeg",
   },
   {
     id: "IT22892812",
     name: "Jayasundara J.D.",
     component: "Tea Yield Prediction",
+    image: "/team/janidu.jpeg",
   },
 ] as const;
 
@@ -59,11 +64,8 @@ export default function AboutPage() {
                 We are a team of final-year <span className="font-semibold text-emerald-700">BSc (Hons) in Information Technology</span> students at the{" "}
                 <span className="font-semibold text-slate-900">Sri Lanka Institute of Information Technology (SLIIT)</span>. 
                 Our research project{" "}
-                <span className="font-semibold text-emerald-700">
-                  &quot;Smart Tea&quot;
-                </span>{" "}
-                applies cutting-edge AI to revolutionize key processes in Sri
-                Lanka’s iconic tea industry.
+                <span className="font-semibold text-emerald-700">"Smart Tea"</span>{" "}
+                applies cutting-edge AI to revolutionize key processes in Sri Lanka’s iconic tea industry.
               </p>
             </motion.div>
 
@@ -71,7 +73,7 @@ export default function AboutPage() {
             <div>
               <div className="flex items-center justify-between mb-10">
                 <h2 className="text-3xl font-semibold tracking-tight text-slate-900">Our Team</h2>
-                <p className="text-sm text-slate-500">Hover cards for details</p>
+                <p className="text-sm text-slate-500">Our dedicated researchers</p>
               </div>
 
               <div className="grid gap-6 sm:grid-cols-2">
@@ -81,38 +83,45 @@ export default function AboutPage() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    whileHover={{ y: -10, scale: 1.02 }}
-                    className="group relative bg-white border border-emerald-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500"
+                    whileHover={{ y: -6 }}
+                    className="group relative bg-white border border-emerald-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
                   >
-                    {/* Tea-green accent bar */}
-                    <div className="h-1.5 bg-linear-to-r from-emerald-400 via-teal-400 to-emerald-500" />
+                    {/* Profile Image */}
+                    <div className="relative h-72 w-full bg-emerald-50 overflow-hidden">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                      
+                      {/* Stronger Dark Overlay for better readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/40" />
+                    </div>
 
-                    <div className="p-8">
+                    {/* Text Content - Now clearly visible */}
+                    <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                       <div className="flex justify-between items-start">
-                        <div>
-                          <h3 className="text-xl font-semibold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                        <div className="flex-1">
+                          <h3 className="text-2xl font-semibold leading-tight">
                             {member.name}
                           </h3>
-                          <p className="text-emerald-600 font-mono text-sm mt-1 tracking-widest">
+                          <p className="text-emerald-200 font-mono text-sm mt-1.5 tracking-widest">
                             {member.id}
                           </p>
                         </div>
 
-                        <div className="px-4 py-1.5 text-xs font-medium rounded-full bg-emerald-50 text-emerald-700">
+                        <div className="px-4 py-1.5 text-xs font-medium rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white">
                           Researcher
                         </div>
                       </div>
 
-                      <div className="mt-8 pt-8 border-t border-emerald-100">
-                        <p className="text-slate-600 leading-relaxed font-medium">
+                      <div className="mt-5 pt-5 border-t border-white/30">
+                        <p className="text-white/90 leading-relaxed font-medium">
                           {member.component}
                         </p>
                       </div>
-                    </div>
-
-                    {/* Decorative Award Icon */}
-                    <div className="absolute bottom-6 right-6 opacity-10 group-hover:opacity-30 transition-opacity">
-                      <Award className="w-20 h-20 text-emerald-600" />
                     </div>
                   </motion.div>
                 ))}
@@ -120,14 +129,14 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Project Details Sidebar */}
+          {/* Sidebar */}
           <motion.aside
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
             className="lg:col-span-4"
           >
-            <div className="sticky top-8 rounded-3xl bg-linear-to-br from-emerald-50 to-white border border-emerald-100 p-9 shadow-lg">
+            <div className="sticky top-8 rounded-3xl bg-gradient-to-br from-emerald-50 to-white border border-emerald-100 p-9 shadow-lg">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-11 h-11 rounded-2xl bg-emerald-100 flex items-center justify-center">
                   <GraduationCap className="w-6 h-6 text-emerald-600" />
@@ -136,33 +145,10 @@ export default function AboutPage() {
               </div>
 
               <div className="space-y-7">
-                <DetailItem 
-                  icon={<GraduationCap className="w-5 h-5" />} 
-                  title="University" 
-                  content="Sri Lanka Institute of Information Technology (SLIIT)" 
-                />
-                <DetailItem 
-                  icon={<GraduationCap className="w-5 h-5" />} 
-                  title="Degree" 
-                  content="BSc (Hons) in Information Technology" 
-                />
-                <DetailItem 
-                  icon={<User className="w-5 h-5" />} 
-                  title="Supervisor" 
-                  content="Ms. Dushani Kuruppu" 
-                />
-                <DetailItem 
-                  icon={<Calendar className="w-5 h-5" />} 
-                  title="Academic Year" 
-                  content="2026" 
-                />
-              </div>
-
-              <div className="mt-12 pt-8 border-t border-emerald-100">
-                <p className="text-xs uppercase tracking-widest text-emerald-600 mb-2">Smart Tea</p>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  AI-powered solutions for tea leaf quality, disease detection, price & yield prediction — bringing intelligence to Sri Lanka’s tea heritage.
-                </p>
+                <DetailItem icon={<GraduationCap className="w-5 h-5" />} title="University" content="Sri Lanka Institute of Information Technology (SLIIT)" />
+                <DetailItem icon={<GraduationCap className="w-5 h-5" />} title="Degree" content="BSc (Hons) in Information Technology" />
+                <DetailItem icon={<User className="w-5 h-5" />} title="Supervisor" content="Ms. Dushani Kuruppu" />
+                <DetailItem icon={<Calendar className="w-5 h-5" />} title="Academic Year" content="2026" />
               </div>
             </div>
           </motion.aside>

@@ -81,6 +81,10 @@ export default function Home() {
                   <div className="text-2xl font-semibold text-emerald-700">2026</div>
                   <div className="text-xs text-slate-500 tracking-widest">FINAL YEAR</div>
                 </div>
+                 <div className="text-center">
+                  <div className="text-2xl font-semibold text-emerald-700">Group</div>
+                  <div className="text-xs text-slate-500 tracking-widest">25-26j-343</div>
+                </div>
                 <div className="text-center">
                   <div className="text-2xl font-semibold text-emerald-700">SLIIT</div>
                   <div className="text-xs text-slate-500 tracking-widest">MALABE</div>
