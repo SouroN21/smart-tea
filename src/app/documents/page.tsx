@@ -104,7 +104,7 @@ const checklists: Doc[] = [
 // Final Thesis Reports
 const finalReports: Doc[] = [
   {
-    title: "Wijesekara W.W.M.N.D - Final Thesis Report",
+    title: "Draft Thesis ",
     kind: "PDF",
     tag: "Final",
     description: "Final Thesis - Part 1 (Chapters 1-3)",
@@ -113,7 +113,16 @@ const finalReports: Doc[] = [
     downloadName: "Wijesekara-Final-Thesis.pdf",
   },
   {
-    title: "Abeyweera K.A.A.U.A. - Final Thesis Report",
+    title: "Wijesekara W.W.M.N.D - Draft Thesis ",
+    kind: "PDF",
+    tag: "Final",
+    description: "Final Thesis - Part 1 (Chapters 1-3)",
+    viewLink: "https://drive.google.com/file/d/19FhAGZeC1zuIa9cuv48xI2BQbhNqZkCW/view?usp=sharing",
+    downloadLink: "https://drive.google.com/uc?export=download&id=19FhAGZeC1zuIa9cuv48xI2BQbhNqZkCW",
+    downloadName: "Wijesekara-Final-Thesis.pdf",
+  },
+  {
+    title: "Abeyweera K.A.A.U.A. - Draft Thesis ",
     kind: "PDF",
     tag: "Final",
     description: "Final Thesis - Part 2 (Chapters 4-5)",
@@ -122,7 +131,7 @@ const finalReports: Doc[] = [
     downloadName: "Abeyweera-Final-Thesis.pdf",
   },
   {
-    title: "Kodisinghe H.R. - Final Thesis Report",
+    title: "Kodisinghe H.R. - Draft Thesis ",
     kind: "PDF",
     tag: "Final",
     description: "Final Thesis - Part 3 (Results & Discussion)",
@@ -131,7 +140,7 @@ const finalReports: Doc[] = [
     downloadName: "Kodisinghe-Final-Thesis.pdf",
   },
   {
-    title: "Jayasundara J.D. - Final Thesis Report",
+    title: "Jayasundara J.D. - Draft Thesis ",
     kind: "PDF",
     tag: "Final",
     description: "Complete Final Thesis with References & Appendices",
@@ -248,7 +257,7 @@ function SectionHeader({ icon, title }: { icon: React.ReactNode; title: string }
   );
 }
 
-/* Document Card */
+/* Document Card - Compact & User-Friendly */
 function DocumentCard({ doc }: { doc: Doc }) {
   return (
     <div className="group bg-white border border-emerald-100 rounded-3xl p-8 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
@@ -256,8 +265,8 @@ function DocumentCard({ doc }: { doc: Doc }) {
 
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-4">
-          <div className="w-11 h-11 rounded-2xl bg-emerald-100 flex items-center justify-center group-hover:scale-110 transition-transform">
-            <FileText className="w-6 h-6 text-emerald-600" />
+          <div className="w-10 h-10 rounded-2xl bg-emerald-100 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <FileText className="w-5 h-5 text-emerald-600" />
           </div>
           <div>
             <h3 className="font-semibold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors">
@@ -268,7 +277,7 @@ function DocumentCard({ doc }: { doc: Doc }) {
         </div>
 
         {doc.tag && (
-          <span className="px-4 py-1 text-xs font-medium bg-emerald-100 text-emerald-700 rounded-full self-start">
+          <span className="px-3 py-1 text-xs font-medium bg-emerald-100 text-emerald-700 rounded-full self-start">
             {doc.tag}
           </span>
         )}
@@ -278,24 +287,25 @@ function DocumentCard({ doc }: { doc: Doc }) {
         {doc.description}
       </p>
 
+      {/* Compact Action Buttons */}
       <div className="mt-8 flex gap-3">
         <a
           href={doc.viewLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 h-11 flex items-center justify-center gap-2 rounded-2xl border border-emerald-200 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 font-medium text-sm transition-all"
+          className="flex-1 h-10 flex items-center justify-center gap-2 rounded-2xl border border-emerald-200 hover:bg-emerald-50 hover:border-emerald-300 text-slate-700 hover:text-emerald-700 font-medium text-sm transition-all active:scale-[0.97]"
         >
           <Eye className="w-4 h-4" />
-          View
+          <span>View</span>
         </a>
 
         <a
           href={doc.downloadLink}
           download={doc.downloadName}
-          className="flex-1 h-11 flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm transition-all"
+          className="flex-1 h-10 flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm transition-all active:scale-[0.97]"
         >
           <Download className="w-4 h-4" />
-          Download
+          <span>Download</span>
         </a>
       </div>
     </div>
