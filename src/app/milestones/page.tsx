@@ -22,10 +22,10 @@ const milestones = [
     phase: "Final Phase (2026)",
     icon: <Calendar className="w-6 h-6" />,
     items: [
-      { title: "Draft Thesis Submission", date: "26 April 2026", status: "Upcoming" },
-      { title: "Website Submission", date: "26 April 2026", status: "Upcoming" },
+      { title: "Draft Thesis Submission", date: "26 April 2026", status: "Completed" },
+      { title: "Website Submission", date: "26 April 2026", status: "Completed" },
       { title: "Final Presentation & Viva", date: "27 April – 6 May 2026", status: "Upcoming" },
-      { title: "Final Checklist Submission", date: "30 April 2026", status: "Upcoming" },
+      { title: "Final Checklist Submission", date: "30 April 2026", status: "Completed" },
       { title: "Website Evaluation & Logbook", date: "27 April – 6 May 2026", status: "Upcoming" },
       { title: "Research Paper Submission", date: "8 May 2026", status: "Upcoming" },
       { title: "Final Thesis Submission", date: "13 May 2026", status: "Upcoming" },

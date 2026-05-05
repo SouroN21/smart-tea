@@ -13,7 +13,7 @@ export default function ContactClient() {
       <div className="max-w-6xl mx-auto">
         <div className="grid gap-10 lg:grid-cols-12">
 
-          {/* Contact Form - Main Section */}
+          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -32,18 +32,38 @@ export default function ContactClient() {
                 </div>
               </div>
 
-              <form className="space-y-6">
+              {/* Formspree Form */}
+              <form 
+                action="https://formspree.io/f/xbdwoagd" 
+                method="POST"
+                className="space-y-6"
+              >
                 <div className="grid gap-6 sm:grid-cols-2">
-                  <Input label="Full Name" placeholder="Your full name" />
-                  <Input label="Email Address" placeholder="you@example.com" type="email" />
+                  <Input 
+                    label="Full Name" 
+                    placeholder="Your full name" 
+                    name="name" 
+                  />
+                  <Input 
+                    label="Email Address" 
+                    placeholder="you@example.com" 
+                    type="email"
+                    name="email" 
+                  />
                 </div>
 
-                <Input label="Subject" placeholder="Collaboration / Research / General Inquiry" />
+                <Input 
+                  label="Subject" 
+                  placeholder="Collaboration / Research / General Inquiry" 
+                  name="subject" 
+                />
 
                 <div className="grid gap-2">
                   <label className="text-sm font-medium text-slate-700">Your Message</label>
                   <textarea
+                    name="message"
                     rows={6}
+                    required
                     className="w-full rounded-3xl border border-emerald-100 px-5 py-4 text-sm resize-y min-h-[160px] focus:outline-none focus:ring-4 focus:ring-emerald-100 focus:border-emerald-300 transition-all"
                     placeholder="Tell us how we can help you..."
                   />
@@ -126,17 +146,21 @@ function Input({
   label,
   placeholder,
   type = "text",
+  name,
 }: {
   label: string;
   placeholder: string;
   type?: string;
+  name?: string;
 }) {
   return (
     <div className="grid gap-2">
       <label className="text-sm font-medium text-slate-700">{label}</label>
       <input
         type={type}
+        name={name}
         placeholder={placeholder}
+        required
         className="h-12 rounded-2xl border border-emerald-100 px-5 text-sm focus:outline-none focus:ring-4 focus:ring-emerald-100 focus:border-emerald-300 transition-all"
       />
     </div>
