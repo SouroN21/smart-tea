@@ -1,6 +1,5 @@
 import { PageShell } from "@/components/page-shell";
-import Link from "next/link";
-import { Download, Eye, FileText, FolderOpen, CheckSquare } from "lucide-react";
+import { Download, Eye, FileText, FolderOpen, CheckSquare, BookOpen } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
 
 export const metadata = {
@@ -18,33 +17,16 @@ type Doc = {
   tag?: string;
 };
 
-const docs: Doc[] = [
+// Core Documents
+const coreDocs: Doc[] = [
   {
     title: "Project Charter",
     kind: "PDF",
     tag: "Main",
     description: "Project overview, roles, scope, and governance.",
-    viewLink: "https://drive.google.com/file/d/1efkgkMCVyfuYd_oaK6OjzRFQfrg31hDE/view?usp=sharing",
-    downloadLink: "https://drive.google.com/uc?export=download&id=1efkgkMCVyfuYd_oaK6OjzRFQfrg31hDE",
+    viewLink: "https://drive.google.com/file/d/1a7vmmVhTu6vpQOTey42MH8un-0d74Mks/view?usp=sharing",
+    downloadLink: "https://drive.google.com/uc?export=download&id=1a7vmmVhTu6vpQOTey42MH8un-0d74Mks",
     downloadName: "SmartTea-Project-Charter.pdf",
-  },
-  {
-    title: "Proposal Document",
-    kind: "PDF",
-    tag: "Main",
-    description: "Problem statement, objectives, and proposed solution plan.",
-    viewLink: "/docs/proposal-document.pdf",
-    downloadLink: "/docs/proposal-document.pdf",
-    downloadName: "SmartTea-Proposal-Document.pdf",
-  },
-  {
-    title: "Research Paper",
-    kind: "PDF",
-    tag: "Publication",
-    description: "Research paper summarizing methodology, results, and findings.",
-    viewLink: "/docs/research-paper.pdf",
-    downloadLink: "/docs/research-paper.pdf",
-    downloadName: "SmartTea-Research-Paper.pdf",
   },
   {
     title: "Logbook",
@@ -57,6 +39,47 @@ const docs: Doc[] = [
   },
 ];
 
+// Proposal Documents
+const proposalDocs: Doc[] = [
+  {
+    title: "Wijesekara W.W.M.N.D - Proposal",
+    kind: "PDF",
+    tag: "Proposal",
+    description: "Initial research proposal - Version 1",
+    viewLink: "https://drive.google.com/file/d/1RIrmjHUasIXRV6bbpu3mw-6-1MkKZC4n/view?usp=sharing",
+    downloadLink: "https://drive.google.com/uc?export=download&id=1RIrmjHUasIXRV6bbpu3mw-6-1MkKZC4n",
+    downloadName: "Wijesekara-Proposal.pdf",
+  },
+  {
+    title: "Abeyweera K.A.A.U.A. - Proposal",
+    kind: "PDF",
+    tag: "Proposal",
+    description: "Revised research proposal with feedback",
+    viewLink: "https://drive.google.com/file/d/1J260EZkeQ4LDyaZtOrfoO66q3F_BGSI1/view?usp=sharing",
+    downloadLink: "https://drive.google.com/uc?export=download&id=1J260EZkeQ4LDyaZtOrfoO66q3F_BGSI1",
+    downloadName: "Abeyweera-Proposal.pdf",
+  },
+  {
+    title: "Kodisinghe H.R. - Proposal",
+    kind: "PDF",
+    tag: "Proposal",
+    description: "Final proposal before presentation",
+    viewLink: "/docs/proposal-document-03.pdf",
+    downloadLink: "/docs/proposal-document-03.pdf",
+    downloadName: "Kodisinghe-Proposal.pdf",
+  },
+  {
+    title: "Jayasundara J.D. - Proposal",
+    kind: "PDF",
+    tag: "Proposal",
+    description: "Proposal defense presentation slides",
+    viewLink: "https://drive.google.com/file/d/1YFnpZjc7j0QHKkogg9e30YtgoLy1RZXZ/view?usp=sharing",
+    downloadLink: "https://drive.google.com/uc?export=download&id=1YFnpZjc7j0QHKkogg9e30YtgoLy1RZXZ",
+    downloadName: "Jayasundara-Proposal-Presentation.pdf",
+  },
+];
+
+// Checklists
 const checklists: Doc[] = [
   {
     title: "Checklist Document 01",
@@ -69,51 +92,52 @@ const checklists: Doc[] = [
   },
   {
     title: "Checklist Document 02",
-    kind: "PDF",
+    kind: "XLSX",                    // Changed to XLSX since it's a spreadsheet
     tag: "Checklist",
-    description: "Submission and review checklist (version 2).",
-    viewLink: "/docs/checklist-02.pdf",
-    downloadLink: "/docs/checklist-02.pdf",
-    downloadName: "SmartTea-Checklist-02.pdf",
+    description: "Submission and review checklist (version 2) - Excel format",
+    viewLink: "https://docs.google.com/spreadsheets/d/1aLE3yGpieyvT4rjCCJEN2NSfAu-HtXhL/edit?usp=sharing",
+    downloadLink: "https://docs.google.com/spreadsheets/d/1aLE3yGpieyvT4rjCCJEN2NSfAu-HtXhL/export?format=xlsx",
+    downloadName: "SmartTea-Checklist-02.xlsx",
   },
 ];
 
-const finalDocs: Doc[] = [
+// Final Thesis Reports
+const finalReports: Doc[] = [
   {
-    title: "Final Document 01",
+    title: "Wijesekara W.W.M.N.D - Final Thesis Report",
     kind: "PDF",
     tag: "Final",
-    description: "Final document pack (part 1 of 4).",
-    viewLink: "/docs/final-document-01.pdf",
-    downloadLink: "/docs/final-document-01.pdf",
-    downloadName: "SmartTea-Final-Document-01.pdf",
+    description: "Final Thesis - Part 1 (Chapters 1-3)",
+    viewLink: "https://drive.google.com/file/d/19FhAGZeC1zuIa9cuv48xI2BQbhNqZkCW/view?usp=sharing",
+    downloadLink: "https://drive.google.com/uc?export=download&id=19FhAGZeC1zuIa9cuv48xI2BQbhNqZkCW",
+    downloadName: "Wijesekara-Final-Thesis.pdf",
   },
   {
-    title: "Final Document 02",
+    title: "Abeyweera K.A.A.U.A. - Final Thesis Report",
     kind: "PDF",
     tag: "Final",
-    description: "Final document pack (part 2 of 4).",
-    viewLink: "/docs/final-document-02.pdf",
-    downloadLink: "/docs/final-document-02.pdf",
-    downloadName: "SmartTea-Final-Document-02.pdf",
+    description: "Final Thesis - Part 2 (Chapters 4-5)",
+    viewLink: "/docs/final-thesis-02.pdf",
+    downloadLink: "/docs/final-thesis-02.pdf",
+    downloadName: "Abeyweera-Final-Thesis.pdf",
   },
   {
-    title: "Final Document 03",
+    title: "Kodisinghe H.R. - Final Thesis Report",
     kind: "PDF",
     tag: "Final",
-    description: "Final document pack (part 3 of 4).",
-    viewLink: "/docs/final-document-03.pdf",
-    downloadLink: "/docs/final-document-03.pdf",
-    downloadName: "SmartTea-Final-Document-03.pdf",
+    description: "Final Thesis - Part 3 (Results & Discussion)",
+    viewLink: "/docs/final-thesis-03.pdf",
+    downloadLink: "/docs/final-thesis-03.pdf",
+    downloadName: "Kodisinghe-Final-Thesis.pdf",
   },
   {
-    title: "Final Document 04",
+    title: "Jayasundara J.D. - Final Thesis Report",
     kind: "PDF",
     tag: "Final",
-    description: "Final document pack (part 4 of 4).",
-    viewLink: "/docs/final-document-04.pdf",
-    downloadLink: "/docs/final-document-04.pdf",
-    downloadName: "SmartTea-Final-Document-04.pdf",
+    description: "Complete Final Thesis with References & Appendices",
+    viewLink: "/docs/final-thesis-04.pdf",
+    downloadLink: "/docs/final-thesis-04.pdf",
+    downloadName: "Jayasundara-Final-Thesis.pdf",
   },
 ];
 
@@ -121,15 +145,27 @@ export default function DocumentsPage() {
   return (
     <PageShell
       title="Documents"
-      subtitle="Access all Smart Tea research documents, proposals, checklists, and reports in one elegant library."
+      subtitle="Complete archive of Smart Tea project documents, proposals, and final reports."
     >
-      <div className="space-y-16">
+      <div className="space-y-20">
 
         {/* Core Documents */}
         <section>
           <SectionHeader icon={<FileText className="w-6 h-6" />} title="Core Documents" />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {docs.map((doc, i) => (
+            {coreDocs.map((doc, i) => (
+              <FadeIn key={doc.title} delay={i * 0.04}>
+                <DocumentCard doc={doc} />
+              </FadeIn>
+            ))}
+          </div>
+        </section>
+
+        {/* Proposal Documents */}
+        <section>
+          <SectionHeader icon={<BookOpen className="w-6 h-6" />} title="Proposal Documents" />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {proposalDocs.map((doc, i) => (
               <FadeIn key={doc.title} delay={i * 0.04}>
                 <DocumentCard doc={doc} />
               </FadeIn>
@@ -149,11 +185,11 @@ export default function DocumentsPage() {
           </div>
         </section>
 
-        {/* Final Documents */}
+        {/* Final Thesis Reports */}
         <section>
-          <SectionHeader icon={<FolderOpen className="w-6 h-6" />} title="Final Documents" />
+          <SectionHeader icon={<FolderOpen className="w-6 h-6" />} title="Final Thesis Reports" />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {finalDocs.map((doc, i) => (
+            {finalReports.map((doc, i) => (
               <FadeIn key={doc.title} delay={i * 0.04}>
                 <DocumentCard doc={doc} />
               </FadeIn>
@@ -173,14 +209,14 @@ export default function DocumentsPage() {
                 <div className="text-emerald-600 mt-1">👁️</div>
                 <div>
                   <p className="font-semibold">View</p>
-                  <p className="text-slate-600 mt-1">Opens document in new tab for preview</p>
+                  <p className="text-slate-600 mt-1">Opens in new tab for preview</p>
                 </div>
               </div>
               <div className="flex gap-5">
                 <div className="text-emerald-600 mt-1">⬇️</div>
                 <div>
                   <p className="font-semibold">Download</p>
-                  <p className="text-slate-600 mt-1">Directly saves file to your device</p>
+                  <p className="text-slate-600 mt-1">Direct download to your device</p>
                 </div>
               </div>
             </div>
@@ -191,7 +227,7 @@ export default function DocumentsPage() {
           <div className="bg-white border border-emerald-100 rounded-3xl p-10">
             <h3 className="font-semibold text-slate-900 mb-4">Adding New Documents</h3>
             <p className="text-slate-600">
-              Place your files inside the <span className="font-mono bg-emerald-50 px-2 py-1 rounded">public/docs</span> folder.
+              Place PDF files in the <span className="font-mono bg-emerald-50 px-2 py-1 rounded">public/docs</span> folder.
             </p>
           </div>
         </FadeIn>
@@ -215,8 +251,7 @@ function SectionHeader({ icon, title }: { icon: React.ReactNode; title: string }
 /* Document Card */
 function DocumentCard({ doc }: { doc: Doc }) {
   return (
-    <div className="group bg-white border border-emerald-100 rounded-3xl p-8 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 flex flex-col">
-      {/* Top accent bar */}
+    <div className="group bg-white border border-emerald-100 rounded-3xl p-8 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
       <div className="h-1.5 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-t-3xl -mx-8 -mt-8 mb-6" />
 
       <div className="flex items-start justify-between">
@@ -243,13 +278,12 @@ function DocumentCard({ doc }: { doc: Doc }) {
         {doc.description}
       </p>
 
-      {/* Action Buttons */}
       <div className="mt-8 flex gap-3">
         <a
           href={doc.viewLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 h-11 flex items-center justify-center gap-2 rounded-2xl border border-emerald-200 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 font-medium text-sm transition-all active:scale-[0.97]"
+          className="flex-1 h-11 flex items-center justify-center gap-2 rounded-2xl border border-emerald-200 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 font-medium text-sm transition-all"
         >
           <Eye className="w-4 h-4" />
           View
@@ -258,7 +292,7 @@ function DocumentCard({ doc }: { doc: Doc }) {
         <a
           href={doc.downloadLink}
           download={doc.downloadName}
-          className="flex-1 h-11 flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm shadow-sm transition-all active:scale-[0.97]"
+          className="flex-1 h-11 flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm transition-all"
         >
           <Download className="w-4 h-4" />
           Download
