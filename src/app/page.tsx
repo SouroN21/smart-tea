@@ -64,12 +64,8 @@ export default function Home() {
                 transition={{ delay: 0.3 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <ButtonLink href="/domain" variant="primary">
-                  Explore the Domain
-                </ButtonLink>
-                <ButtonLink href="/about" variant="ghost">
-                  Meet the Team
-                </ButtonLink>
+                
+                
               </motion.div>
 
               <div className="flex items-center gap-8 pt-4">

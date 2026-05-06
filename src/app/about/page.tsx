@@ -112,9 +112,7 @@ export default function AboutPage() {
                           </p>
                         </div>
 
-                        <div className="px-4 py-1.5 text-xs font-medium rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white">
-                          Researcher
-                        </div>
+                        
                       </div>
 
                       <div className="mt-5 pt-5 border-t border-white/30">

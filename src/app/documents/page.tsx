@@ -37,6 +37,15 @@ const coreDocs: Doc[] = [
     downloadLink: "/docs/logbook.pdf",
     downloadName: "SmartTea-Logbook.pdf",
   },
+  {
+    title: "Research Paper",
+    kind: "PDF",           // Change to "DOCX" if it's actually a Word document
+    tag: "Record",
+    description: "Research paper on Tea Leaf Quality Classification using Machine Learning.",
+    viewLink: "https://drive.google.com/file/d/1eQticHM-JAhIgkFX2ICkGoPpKFPd4eYl/view?usp=sharing",
+    downloadLink: "https://drive.google.com/uc?export=download&id=1eQticHM-JAhIgkFX2ICkGoPpKFPd4eYl",
+    downloadName: "SmartTea-TeaLeaf-Quality-Classification.pdf",   // Fixed extension
+  },
 ];
 
 // Proposal Documents
@@ -157,6 +166,7 @@ export default function DocumentsPage() {
       subtitle="Complete archive of Smart Tea project documents, proposals, and final reports."
     >
       <div className="space-y-20">
+
 
         {/* Core Documents */}
         <section>
